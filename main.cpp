@@ -21,8 +21,8 @@ int main (int argc, char ** argv)
 	std::cout << "|q|^2         = " << norm2(q) << std::endl;
 	std::cout << "|adj(q)*g5|^2 = " << norm2(adj(q)*g5) << std::endl;
 	std::cout << "|qAdj1|^2     = " << norm2(qAdj1) << std::endl;
-        std::cout << "|qAdj2|^2     = " << norm2(qAdj2) << std::endl;
-        std::cout << "|qAdj3|^2     = " << norm2(qAdj3) << std::endl;
+	std::cout << "|qAdj2|^2     = " << norm2(qAdj2) << std::endl;
+	std::cout << "|qAdj3|^2     = " << norm2(qAdj3) << std::endl;
 
 	Grid_finalize();
 }
