@@ -14,12 +14,15 @@ int main (int argc, char ** argv)
 	LatticePropagator q(grid);
 	q = 1.0;
 	
-	const auto qD = g5 * adj(q) * g5;
+	auto              qAdj1 = adj(q) * g5; // LatticeBinaryExpression
+	LatticePropagator qAdj2 = qAdj1;       // evaluate lvalue expression
+	LatticePropagator qAdj3 = adj(q) * g5; // evaluate rvalue expression
 	
-	std::cout << "|q|^2          = " << norm2(q) << std::endl;
-	std::cout << "|adj(q)|^2     = " << norm2(adj(q)) << std::endl;
-	std::cout << "|g5adj(q)g5|^2 = " << norm2(g5*adj(q)*g5) << std::endl;
-	std::cout << "|qD|^2         = " << norm2(qD) << std::endl;
+	std::cout << "|q|^2         = " << norm2(q) << std::endl;
+	std::cout << "|adj(q)*g5|^2 = " << norm2(adj(q)*g5) << std::endl;
+	std::cout << "|qAdj1|^2     = " << norm2(qAdj1) << std::endl;
+        std::cout << "|qAdj2|^2     = " << norm2(qAdj2) << std::endl;
+        std::cout << "|qAdj3|^2     = " << norm2(qAdj3) << std::endl;
 
 	Grid_finalize();
 }
